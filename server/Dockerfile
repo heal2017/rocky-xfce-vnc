@@ -17,6 +17,7 @@ RUN \
     yum install csh -y && \
     yum install zsh -y && \
     yum install procps-ng -y && \
+    yum install iproute -y && \
     yum install gcc -y && \
     yum install net-tools -y && \
     yum install iftop -y && \
@@ -35,11 +36,10 @@ RUN \
     yum install tini -y && \
     yum remove upower -y && \
     rm /etc/xdg/autostart/xfce-polkit.desktop && \
-    yum install chkconfig -y
-
-RUN \
+    yum install chkconfig -y && \
     yum install numpy -y && \
     yum install procps-ng -y
+
 
 ENV RES_PATH="/resources"
 ENV TMP_PATH="/tmp"

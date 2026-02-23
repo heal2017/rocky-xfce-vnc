@@ -24,4 +24,5 @@ services:
     container_name: vnc
     ports:
       - "5900:5900"
+      - "6900:6900"
 

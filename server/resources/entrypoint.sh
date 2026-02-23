@@ -13,7 +13,8 @@ echo "root" | su root -c " \
 
 # user scripts
 echo "${PASSWORD}" | su ${USERNAME} -c " \
-    ${RES_PATH}/scripts/start_vnc.sh
+    ${RES_PATH}/scripts/start_vnc.sh && \
+    ${RES_PATH}/scripts/start_novnc.sh
 "
 
 while true; do

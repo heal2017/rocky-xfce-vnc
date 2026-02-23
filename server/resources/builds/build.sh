@@ -18,6 +18,12 @@ set nu
 set expandtab
 EOF
 
+# no_vnc
+mkdir -p ${NOVNC_PATH}/utils/websockify
+tar xvf ${RES_PATH}/apps/noVNC.v1.3.0.tar.gz          --strip 1 -C ${NOVNC_PATH}
+tar xvf ${RES_PATH}/apps/websockify.v0.10.0.tar.gz    --strip 1 -C ${NOVNC_PATH}/utils/websockify
+ln -sf ${NOVNC_PATH}/vnc_lite.html ${NOVNC_PATH}/index.html
+
 # limits.conf
 tee -a /etc/security/limits.conf <<- 'EOF'
 *   soft    nproc       unlimited

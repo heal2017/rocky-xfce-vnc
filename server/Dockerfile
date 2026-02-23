@@ -37,6 +37,10 @@ RUN \
     rm /etc/xdg/autostart/xfce-polkit.desktop && \
     yum install chkconfig -y
 
+RUN \
+    yum install numpy -y && \
+    yum install procps-ng -y
+
 ENV RES_PATH="/resources"
 ENV TMP_PATH="/tmp"
 ENV LANG="en_US.UTF-8"
@@ -52,6 +56,9 @@ ENV USE_VNC_PASSWORD="false"
 ENV VNC_PASSWORD="password"
 ENV GEOMETRY="1920x1080"
 
+ENV NOVNC_PATH="/opt/no_vnc"
+ENV NOVNC_PORT="6900"
+
 COPY --chmod=755 ./resources ${RES_PATH}
 
 RUN \
@@ -62,7 +69,7 @@ RUN \
 USER ${USERNAME}
 WORKDIR ~
 
-EXPOSE 5900
+EXPOSE 5900 6900
 
 CMD ["/usr/bin/tini", "-s", "/resources/entrypoint.sh"]
 

@@ -1,0 +1,27 @@
+x-common-configure: &common-configure
+  image: rocky-xfce-vnc
+  environment:
+    HOSTNAME: "rocky"
+  build:
+    context: ./server
+  volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  privileged: true
+  networks:
+    - app_net
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 11.0.0.0/24
+
+services:
+  vnc:
+    <<: *common-configure
+    container_name: vnc
+    ports:
+      - "5900:5900"
+

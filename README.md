@@ -87,3 +87,10 @@ environment:
     GEOMETRY: "2560x1440"
 ```
 
+- 如何启用noVNC, 修改NOVNC端口
+```shell
+environment:
+    ENABLE_NOVNC: "true"
+    NOVNC_PORT="6900"
+```
+

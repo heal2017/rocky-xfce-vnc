@@ -68,7 +68,7 @@ RUN \
     . ${RES_PATH}/builds/build.sh
 
 USER ${USERNAME}
-WORKDIR ~
+WORKDIR /home/${USERNAME}
 
 EXPOSE 5900 6900
 
